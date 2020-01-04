@@ -1,0 +1,41 @@
+#!/bin/sh
+# Starts the wifi chip with ifup
+########################################################################
+WIFI_INTERFACE=wlan0
+
+# start funtion
+########################################################################
+start() {
+    echo -n "Starting wifi up ... "
+    ifup ${WIFI_INTERFACE}
+    echo "OK"
+}
+
+# stop function
+########################################################################
+stop() {
+    echo -n "Stopping wifi ... "
+    ifdown ${WIFI_INTERFACE}
+}
+
+########################################################################
+# MAIN
+########################################################################
+case "${1}" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    ${0} stop
+    ${0} start
+    ;;
+  status)
+    status
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|status|restart}"
+    exit 1
+esac

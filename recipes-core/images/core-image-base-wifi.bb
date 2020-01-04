@@ -30,4 +30,5 @@ IMAGE_INSTALL_append = " \
     iptables \
     wpa-supplicant \
     wpa-supplicant-copier \
+    wifi-startup \
     "
