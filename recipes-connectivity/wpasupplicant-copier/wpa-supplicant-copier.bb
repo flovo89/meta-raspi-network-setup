@@ -9,9 +9,13 @@ BBCLASSEXTEND = "nativesdk"
 
 SRC_URI = "\
     file://wpa_supplicant.conf \
+    file://interfaces \
     "
 
 do_install() {
     install -d ${D}/${sysconfdir}/
     install -m 0755 ${WORKDIR}/wpa_supplicant.conf ${D}/${sysconfdir}/
+
+    install -d ${D}/${sysconfdir}/network
+    install -m 0755 ${WORKDIR}/interfaces ${D}/${sysconfdir}/network/
 }

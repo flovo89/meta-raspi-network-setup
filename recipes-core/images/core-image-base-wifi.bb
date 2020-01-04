@@ -6,8 +6,9 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${GPLv2_LICENSE_PATH};md5=${GPLv2_LICENSE_CHECKSUM}"
 
 IMAGE_FEATURES += " \
-	splash \
-	debug-tweaks \
+    splash \
+    debug-tweaks \
+    ssh-server-dropbear \
     "
 
 inherit core-image
