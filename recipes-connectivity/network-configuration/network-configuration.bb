@@ -1,5 +1,5 @@
-SUMMARY = "Setting up wifi configuration"
-DESCRIPTION = "Copy wpa_supplicant.conf to the appropriate location"
+SUMMARY = "Setting up network configuration"
+DESCRIPTION = "Copy wpa_supplicant.conf and interfaces file to the appropriate location"
 AUTHOR = "Florian Vogel <flovo89@hotmail.com>"
 HOMEPAGE = "https://github.com/flovo89"
 LICENSE = "GPLv2"

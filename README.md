@@ -1,1 +1,1 @@
-# meta-raspi-wifi-config
+# meta-raspi-network-setup
