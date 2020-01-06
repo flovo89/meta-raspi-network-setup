@@ -29,5 +29,5 @@ IMAGE_INSTALL_append = " \
     dhcp-server \
     iptables \
     wpa-supplicant \
-    wpa-supplicant-copier \
+    network-configuration \
     "
