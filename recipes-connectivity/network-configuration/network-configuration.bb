@@ -12,6 +12,23 @@ SRC_URI = "\
     file://interfaces \
     "
 
+do_configure() {
+    if [ -n "$INTERFACES_CONTENT" ]; then
+        echo ${INTERFACES_CONTENT} > ${WORKDIR}/interfaces
+        bbnote "Configuring interfaces file: "
+        bbnote "$(echo $INTERFACES_CONTENT)"
+    else 
+        bbwarn "Using default interfaces file"
+    fi
+    if [ -n "$WPA_SUPPLICANT_CONF_CONTENT" ]; then
+        echo ${WPA_SUPPLICANT_CONF_CONTENT} > ${WORKDIR}/wpa_supplicant.conf
+        bbnote "Configuring wpa_supplicant.conf file: "
+        bbnote "$(echo $WPA_SUPPLICANT_CONF_CONTENT)"
+    else
+        bbwarn "Using default wpa_supplicant.conf"
+    fi
+}
+
 do_install() {
     install -d ${D}/${sysconfdir}/
     install -m 0755 ${WORKDIR}/wpa_supplicant.conf ${D}/${sysconfdir}/
