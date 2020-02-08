@@ -23,7 +23,11 @@ do_configure() {
     if [ -n "${WPA_SUPPLICANT_CONF_CONTENT}" ]; then
         echo "${WPA_SUPPLICANT_CONF_CONTENT}" > ${WORKDIR}/wpa_supplicant.conf
         bbnote "Configuring wpa_supplicant.conf file: "
-        bbnote "$(echo "${WPA_SUPPLICANT_CONF_CONTENT}")"
+        bbnote "$(echo "${WPA_SUPPLICANT_CONF_CONTENT}")" 
+
+        # Make sure quotes are correct
+        sed -i 's/\(ssid=[[:blank:]]*\)\(.*\)/\1"\2"/' ${WORKDIR}/wpa_supplicant.conf
+        sed -i 's/\(psk=[[:blank:]]*\)\(.*\)/\1"\2"/' ${WORKDIR}/wpa_supplicant.conf
     else
         bbwarn "Using default wpa_supplicant.conf"
     fi
