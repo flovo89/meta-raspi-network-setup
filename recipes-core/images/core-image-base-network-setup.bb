@@ -13,13 +13,13 @@ IMAGE_FEATURES += " \
 
 inherit core-image
 
-DISTRO_FEATURES_append = " \
+DISTRO_FEATURES:append = " \
     bluez5 \
     bluetooth \
     wifi \
     "
 
-IMAGE_INSTALL_append = " \
+IMAGE_INSTALL:append = " \
     linux-firmware-bcm43430 \
     bluez5 \
     i2c-tools \
